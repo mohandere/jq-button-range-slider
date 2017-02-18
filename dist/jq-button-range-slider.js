@@ -1,9 +1,9 @@
 /*
- *  jquery-boilerplate - v4.0.0
- *  A jump-start for jQuery plugins development.
- *  http://jqueryboilerplate.com
+ *  jq-button-range-slider - v1.0.0
+ *  jQuery range slider plugin with buttons as a values.
+ *  https://mohandere.github.io/jq-button-range-slider/
  *
- *  Made by Zeno Rocha
+ *  Made by Mohan Dere
  *  Under MIT License
  */
 // the semi-colon before function invocation is a safety net against concatenated
@@ -17,7 +17,7 @@
 		// passed in so we can ensure the value of it is truly undefined. In ES5, undefined
 		// can no longer be modified.
 
-		// window and document are passed through as local variable rather than global
+		// window and document are passed through as local variables rather than global
 		// as this (slightly) quickens the resolution process and can be more efficiently
 		// minified (especially when both are regularly referenced in your plugin).
 
@@ -50,7 +50,7 @@
 				// the options via the instance, e.g. this.element
 				// and this.settings
 				// you can add more functions like the one below and
-				// call them like the example bellow
+				// call them like the example below
 				this.yourOtherFunction( "jQuery Boilerplate" );
 			},
 			yourOtherFunction: function( text ) {

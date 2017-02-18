@@ -1,19 +1,19 @@
 {
-  "name": "jquery-boilerplate",
+  "name": "jq-button-range-slider",
   "license": "MIT",
   "authors": [
-    "Zeno Rocha <hi@zenorocha.com>"
+    "Mohan Dere <deremohan01@gmail.com>"
   ],
-  "description": "A jump-start for jQuery plugins development.",
-  "homepage": "http://jqueryboilerplate.com",
+  "description": "jQuery range slider plugin with buttons as a values.",
+  "homepage": "https://mohandere.github.io/jq-button-range-slider/",
   "keywords": [
-    "jquery",
-    "plugin",
-    "boilerplate",
     "jquery-plugin",
-    "jquery-boilerplate"
+    "jquery",
+    "plugins",
+    "range-slider",
+    "button-range-slider"
   ],
-  "main": "src/jquery.boilerplate.js",
+  "main": "src/jq-button-range-slider.js",
   "dependencies": {
     "jquery": "1"
   },

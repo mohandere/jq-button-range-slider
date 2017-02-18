@@ -11,4 +11,4 @@ Before sending a pull request remember to follow [jQuery Core Style Guide](http:
 
 #### Have you created a plugin from our boilerplate?
 
-[Let us know!](https://github.com/jquery-boilerplate/boilerplate/wiki/Sites) It’s interesting to see what features others have come up with.
+[Let us know!](https://github.com/jq-button-range-slider/boilerplate/wiki/Sites) It’s interesting to see what features others have come up with.

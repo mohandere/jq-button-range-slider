@@ -23,14 +23,23 @@ module.exports = function( grunt ) {
 				banner: "<%= meta.banner %>"
 			},
 			dist: {
-				src: [ "src/jq-button-range-slider.js" ],
-				dest: "dist/jq-button-range-slider.js"
+				src: [ "src/js/jq-button-range-slider.js" ],
+				dest: "dist/js/jq-button-range-slider.js"
 			}
+		},
+
+		//Concat css files
+		concat_css: {
+			files: {
+				'dist/css/jq-button-range-slider.min.css': [
+					'src/css/jq-button-range-slider.css'
+				],
+			},
 		},
 
 		// Lint definitions
 		jshint: {
-			files: [ "src/jq-button-range-slider.js", "test/**/*" ],
+			files: [ "src/js/jq-button-range-slider.js", "test/**/*" ],
 			options: {
 				jshintrc: ".jshintrc"
 			}
@@ -46,8 +55,8 @@ module.exports = function( grunt ) {
 		// Minify definitions
 		uglify: {
 			dist: {
-				src: [ "dist/jq-button-range-slider.js" ],
-				dest: "dist/jq-button-range-slider.min.js"
+				src: [ "dist/js/jq-button-range-slider.js" ],
+				dest: "dist/js/jq-button-range-slider.min.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"
@@ -61,13 +70,15 @@ module.exports = function( grunt ) {
 				configFile: "karma.conf.js",
 				background: true,
 				singleRun: false,
-				browsers: [ "PhantomJS", "Firefox" ]
+				port: 9999,
+				browsers: [ "PhantomJS", "Firefox", "Chrome" ]
 			},
 
 			//continuous integration mode: run tests once in PhantomJS browser.
 			travis: {
 				configFile: "karma.conf.js",
 				singleRun: true,
+				port: 9999,
 				browsers: [ "PhantomJS" ]
 			}
 		},
@@ -86,11 +97,12 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( "grunt-contrib-jshint" );
 	grunt.loadNpmTasks( "grunt-jscs" );
 	grunt.loadNpmTasks( "grunt-contrib-uglify" );
+	grunt.loadNpmTasks('grunt-concat-css');
 	grunt.loadNpmTasks( "grunt-contrib-watch" );
 	grunt.loadNpmTasks( "grunt-karma" );
 
 	grunt.registerTask( "travis", [ "jshint", "karma:travis" ] );
 	grunt.registerTask( "lint", [ "jshint", "jscs" ] );
-	grunt.registerTask( "build", [ "concat", "uglify" ] );
+	grunt.registerTask( "build", [ "concat", "uglify", "concat_css" ] );
 	grunt.registerTask( "default", [ "jshint", "build", "karma:unit:run" ] );
 };

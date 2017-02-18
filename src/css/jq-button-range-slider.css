@@ -1,0 +1,60 @@
+.yo-button-range-slider{
+
+	//display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	//display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	//display: -ms-flexbox;      /* TWEENER - IE 10 */
+	//display: -webkit-flex;     /* NEW - Chrome */
+	//display: flex;
+
+
+  min-width: 100%;
+  box-sizing: content-box;
+  border-collapse: separate;
+}
+.yo-btn {
+  // display: inline-block;
+  padding: 4px 16px;
+  // margin-bottom: 0;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 0;
+  background: #fff;
+  // border-color: #e0e0e0;
+  white-space: nowrap;
+}
+
+
+.yo-btn:last-child {
+	border-right: 1px solid #e0e0e0;
+}
+
+.touch .yo-btn{
+	white-space: normal;
+}
+
+
+@media screen and (max-width: 568px) {
+  .yo-btn {
+    font-size: 12px;
+  }
+}
+
+.yo-btn-range.active{
+  background: lightgray;
+}
+.yo-btn-range:focus,
+.yo-btn-range.active{
+  box-shadow: none;
+  outline: 0 none !important;
+}

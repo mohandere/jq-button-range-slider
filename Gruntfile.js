@@ -28,15 +28,6 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		//Concat css files
-		concat_css: {
-			files: {
-				'dist/css/jq-button-range-slider.min.css': [
-					'src/css/jq-button-range-slider.css'
-				],
-			},
-		},
-
 		// Lint definitions
 		jshint: {
 			files: [ "src/js/jq-button-range-slider.js", "test/**/*" ],
@@ -97,12 +88,11 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( "grunt-contrib-jshint" );
 	grunt.loadNpmTasks( "grunt-jscs" );
 	grunt.loadNpmTasks( "grunt-contrib-uglify" );
-	grunt.loadNpmTasks('grunt-concat-css');
 	grunt.loadNpmTasks( "grunt-contrib-watch" );
 	grunt.loadNpmTasks( "grunt-karma" );
 
 	grunt.registerTask( "travis", [ "jshint", "karma:travis" ] );
 	grunt.registerTask( "lint", [ "jshint", "jscs" ] );
-	grunt.registerTask( "build", [ "concat", "uglify", "concat_css" ] );
+	grunt.registerTask( "build", [ "concat", "uglify" ] );
 	grunt.registerTask( "default", [ "jshint", "build", "karma:unit:run" ] );
 };

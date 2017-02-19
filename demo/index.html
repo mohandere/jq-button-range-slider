@@ -2,15 +2,15 @@
 <html>
 	<head>
 		<title>jQuery Boilerplate</title>
-		<link type="text/css" rel="stylesheet" href="../src/css/style.css" />
-		<script src="../node_modules/jquery/dist/js/jquery.min.js"></script>
-		<script src="../src/js/jq-button-range-slider.js"></script>
+		<link type="text/css" rel="stylesheet" href="../src/css/jq-button-range-slider.css" />
+		<script src="../node_modules/jquery/dist/jquery.js"></script>
+		<script src="../dist/js/jq-button-range-slider.js"></script>
 	</head>
 	<body>
 		<div id="element"></div>
 		<script>
 			$( function() {
-				$( "#element" ).defaultPluginName( {
+				$( "#element" ).jqButtonRangeSlider( {
 					propertyName: "a custom value"
 				} );
 			} );

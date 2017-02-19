@@ -14,13 +14,13 @@
 		// minified (especially when both are regularly referenced in your plugin).
 
 		// Create the defaults once
-		var pluginName = "defaultPluginName",
+		var pluginName = "jqButtonRangeSlider",
 			defaults = {
-				propertyName: "value"
+				className: "yo-button-range-slider"
 			};
 
 		// The actual plugin constructor
-		function Plugin ( element, options ) {
+		function JqButtonRangeSlider ( element, options ) {
 			this.element = element;
 
 			// jQuery has an extend method which merges the contents of two or
@@ -33,8 +33,8 @@
 			this.init();
 		}
 
-		// Avoid Plugin.prototype conflicts
-		$.extend( Plugin.prototype, {
+		// Avoid JqButtonRangeSlider.prototype conflicts
+		$.extend( JqButtonRangeSlider.prototype, {
 			init: function() {
 
 				// Place initialization logic here
@@ -58,7 +58,7 @@
 			return this.each( function() {
 				if ( !$.data( this, "plugin_" + pluginName ) ) {
 					$.data( this, "plugin_" +
-						pluginName, new Plugin( this, options ) );
+						pluginName, new JqButtonRangeSlider( this, options ) );
 				}
 			} );
 		};

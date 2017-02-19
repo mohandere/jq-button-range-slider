@@ -6,7 +6,6 @@
 
 ## Demo
 
-
 ## Getting Started
 Set up your HTML markup.
 ```ahtml
@@ -24,11 +23,11 @@ or copy and paste follwing css in your ```head```
 
 ```css
 .yo-button-range-slider{
-  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;      /* TWEENER - IE 10 */
-  display: -webkit-flex;     /* NEW - Chrome */
-  display: flex;
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;
 }
 .yo-btn {
 	padding: 4px 16px;

@@ -1,16 +1,13 @@
-## Jquery Button Range Slider plugin
+# Jquery Button Range Slider plugin
 
-### Features
+## Features
 - Full Responsive. 
 - Scales with its container.
 - String | Interger value support
 - Fully customisable
 
+## Demo
 
-### Demo
-
-
-### Usage
 ## Getting Started
 Set up your HTML markup.
 ```
@@ -79,4 +76,4 @@ OR copy and paste follwing css in your <head>
 
 ```
 
-### Settings
+## Settings

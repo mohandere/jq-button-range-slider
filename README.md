@@ -160,14 +160,19 @@ Array of objects with `name` and `value` per slider option/button
 ---
 **template**
 
-**Type:** string (html) | object (DOM node)
+**Type:** string (html)|object (DOM node)
 
 **Default:** 
 ```
-<% for ( var i = 0; i < sliderOptions.length; i++ ) { %> <button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>"><%=sliderOptions[i].name%></button><% } %>
+<% for ( var i = 0; i < sliderOptions.length; i++ ) { %> 
+<button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>">
+<%=sliderOptions[i].name%>
+</button>
+<% } %>
 ```
 
 JavaScript micro template for rendering button html
+
 More on [JavaScript Micro-Templating](http://ejohn.org/blog/javascript-micro-templating/)
 
 **className**

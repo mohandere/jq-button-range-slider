@@ -87,26 +87,29 @@ Initialize your slider in your script file or an inline script tag
 $(document).ready(function(){
 	$("#slider").jqButtonRangeSlider({
 		sliderOptions: [{
-			name: 'Very Very Bad',
-			value: 'VVB'
+			name: 'Calcium',
+			value: 20
 		},{
-			name: 'Very Bad',
-			value: 'VB'
+			name: 'Carbon',
+			value: 6
 		},{
-			name: 'Bad',
-			value: 'B'
+			name: 'Gold',
+			value: 79
 		},{
-			name: 'Good',
-			value: 'G'
+			name: 'Hydrogen',
+			value: 1
 		},{
-			name: 'Very Good',
-			value: 'VG'
+			name: 'Mercury',
+			value: 80
 		},{
-			name: 'Excellent',
-			value: 'E'
+			name: '	Oxygen',
+			value: 8
 		},{
-			name: 'Damn Excellent',
-			value: 'DE'
+			name: 'Zinc',
+			value: 30
+		},{
+			name: 'Titanium',
+			value: 22
 		}]
 	}).on( 'yo:change', function(e, ui) {
 		$('#lb').text(ui.lb.value);

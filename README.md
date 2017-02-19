@@ -134,26 +134,26 @@ Array of objects with `name` and `value` per slider option/button
 ```
 [
 	{
-	  name: 'Very Very Bad',
-	  value: 'VVB'
+	  name: 'WHITE',
+	  value: '#FFFFFF'
 	},{
-	  name: 'Very Bad',
-	  value: 'VB'
+	  name: 'BLACK',
+	  value: '#000000'
 	},{
-	  name: 'Bad',
-	  value: 'B'
+	  name: 'RED',
+	  value: '#FF0000'
 	},{
-	  name: 'Good',
-	  value: 'G'
+	  name: 'White',
+	  value: '#fff'
 	},{
-	  name: 'Very Good',
-	  value: 'VG'
+	  name: 'YELLOW',
+	  value: '#FFFF00'
 	},{
-	  name: 'Excellent',
-	  value: 'E'
+	  name: 'GREEN',
+	  value: '#008000'
 	},{
-	  name: 'Damn Excellent',
-	  value: 'DE'
+	  name: 'BLUE',
+	  value: '#0000FF'
 	}
 ]
 

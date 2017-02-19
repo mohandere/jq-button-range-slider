@@ -178,7 +178,7 @@ Fires after slider change
 
 <code>ui</code> hash will look like -
 
-```json
+```javascript
 
 {
   "lb": {

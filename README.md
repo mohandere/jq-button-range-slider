@@ -108,7 +108,7 @@ $(document).ready(function(){
 			name: 'Damn Excellent',
 			value: 'DE'
 		}]
-	}).on('yo:change', function(e, ui) {
+	}).on( 'yo:change', function(e, ui) {
 		$('#lb').text(ui.lb.value);
 		$('#ub').text(ui.ub.value);
 	});
@@ -116,6 +116,56 @@ $(document).ready(function(){
 });
 
 ```
+
 > NOTE: I highly recommend putting your initialization script in an external JS file.
 
 ## Settings
+
+**sliderOptions**
+
+**Type:** array
+
+**Default:** []
+
+Array of objects with `name` and `value` per slider option/button
+
+**Example:**
+```
+[
+	{
+	  name: 'Very Very Bad',
+	  value: 'VVB'
+	},{
+	  name: 'Very Bad',
+	  value: 'VB'
+	},{
+	  name: 'Bad',
+	  value: 'B'
+	},{
+	  name: 'Good',
+	  value: 'G'
+	},{
+	  name: 'Very Good',
+	  value: 'VG'
+	},{
+	  name: 'Excellent',
+	  value: 'E'
+	},{
+	  name: 'Damn Excellent',
+	  value: 'DE'
+	}
+]
+
+```
+---
+**template**
+
+**Type:** string (html) | object (DOM node)
+
+**Default:** 
+```
+<% for ( var i = 0; i < sliderOptions.length; i++ ) { %> <button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>"><%=sliderOptions[i].name%></button><% } %>
+```
+
+JavaScript micro template for rendering button html
+More on [JavaScript Micro-Templating](http://ejohn.org/blog/javascript-micro-templating/)

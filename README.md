@@ -119,6 +119,7 @@ $(document).ready(function(){
 
 > NOTE: I highly recommend putting your initialization script in an external JS file.
 
+
 ## Settings
 
 **sliderOptions**
@@ -162,9 +163,10 @@ Array of objects with `name` and `value` per slider option/button
 
 **template**
 
-**Type:** string (html)|object (DOM node)
+**Type:** string (html)
 
 **Default:** 
+
 ```
 <% for ( var i = 0; i < sliderOptions.length; i++ ) { %> 
 <button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>">

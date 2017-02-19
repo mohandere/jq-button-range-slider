@@ -39,35 +39,40 @@ Initialize your slider in your script file or an inline script tag
 ```javascript
 
 $(document).ready(function(){
+
 	$("#slider").jqButtonRangeSlider({
 		sliderOptions: [{
-			name: 'Calcium',
+			name: "Calcium",
 			value: 20
 		},{
-			name: 'Carbon',
+			name: "Carbon",
 			value: 6
 		},{
-			name: 'Gold',
+			name: "Gold",
 			value: 79
 		},{
-			name: 'Hydrogen',
+			name: "Hydrogen",
 			value: 1
 		},{
-			name: 'Mercury',
+			name: "Mercury",
 			value: 80
 		},{
-			name: '	Oxygen',
+			name: "	Oxygen",
 			value: 8
 		},{
-			name: 'Zinc',
+			name: "Zinc",
 			value: 30
 		},{
-			name: 'Titanium',
+			name: "Titanium",
 			value: 22
 		}]
-	}).on( 'yo:change', function(e, ui) {
-		$('#lb').text(ui.lb.value);
-		$('#ub').text(ui.ub.value);
+	}).on( "yo:change", function(e, ui) {
+
+		$("#lb").text(ui.lb.value);
+		$("#ub").text(ui.ub.value);
+
+		//Fetch products within given range from server
+		//Do ajax
 	});
 
 });
@@ -91,26 +96,26 @@ Array of objects with `name` and `value` per slider option/button
 ```javascript
 [
 	{
-	  name: 'WHITE',
-	  value: '#FFFFFF'
+	  name: "WHITE",
+	  value: "#FFFFFF"
 	},{
-	  name: 'BLACK',
-	  value: '#000000'
+	  name: "BLACK",
+	  value: "#000000"
 	},{
-	  name: 'RED',
-	  value: '#FF0000'
+	  name: "RED",
+	  value: "#FF0000"
 	},{
-	  name: 'White',
-	  value: '#fff'
+	  name: "White",
+	  value: "#fff"
 	},{
-	  name: 'YELLOW',
-	  value: '#FFFF00'
+	  name: "YELLOW",
+	  value: "#FFFF00"
 	},{
-	  name: 'GREEN',
-	  value: '#008000'
+	  name: "GREEN",
+	  value: "#008000"
 	},{
-	  name: 'BLUE',
-	  value: '#0000FF'
+	  name: "BLUE",
+	  value: "#0000FF"
 	}
 ]
 
@@ -120,11 +125,11 @@ Array of objects with `name` and `value` per slider option/button
 
 **template**
 
-**Type:** string (html)
+**Type:** string
 
 **Default:**
 
-```html
+```
 <% for ( var i = 0; i < sliderOptions.length; i++ ) { %>
 	<button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>">
 		<%=sliderOptions[i].name%>
@@ -148,4 +153,68 @@ html class for slider
 
 ## Events
 
+Use them as shown below:
+
+```javascript
+var $slider = $(".your-element");
+// On change event
+$slider.on("yo:change", function(event, ui, slider){
+  console.log(ui);
+});
+
+```
+
+**yo:init**
+
+**Arguments:** event, slider
+
+Fires after first initialization.
+
+**yo:change**
+
+**Arguments:** event, ui, slider
+
+Fires after slider change
+
+<code>ui</code> hash will look like -
+
+```javascript
+
+{
+  "lb": {
+    index: 2, //index of button at lower bound
+    value: "#FF0000"
+  },
+  "ub": {
+    index: 5, //index of button at upper bound
+    value: "#000000"
+  }
+};
+
+```
+
+
+
 ## Methods
+
+Methods are called on slick instances through trigger:
+
+```javascript
+var $slider = $(".your-element");
+// Reset slider
+$slider.trigger( "yo:reset" );
+
+```
+
+
+**yo:destroy**
+
+**Arguments:** none
+
+Destroy current slider
+
+**yo:reset**
+
+**Arguments:** none
+
+Reset current slider

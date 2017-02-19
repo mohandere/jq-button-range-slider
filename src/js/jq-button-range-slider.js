@@ -18,11 +18,7 @@
 				defaults = {
 					className: "yo-button-range-slider",
 	      	sliderOptions: [],
-		      template: '<% for ( var i = 0; i < sliderOptions.length; i++ ) { %>' +
-			      '<button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>">' +
-			      	'<%=sliderOptions[i].name%>' +
-			      '</button>' +
-			      ' <% } %>',
+		      template: '<% for ( var i = 0; i < sliderOptions.length; i++ ) { %> <button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>"><%=sliderOptions[i].name%></button><% } %>'
 				};
 
 		// The actual plugin constructor
@@ -78,10 +74,6 @@
 		      throw new Error( "JqButtonRangeSlider plugin parameter `sliderOptions` is required!" );
 		    }
 
-				//Cache selectors
-				this.$el = $( this.element );
-				this.$sliderButtons = this.$el.find( ".yo-range-btn" );
-
 				//Slider variables
 				this.sliderLength = 0;
 			  this.sliderMaxIndex = 0; //total element -1
@@ -108,6 +100,8 @@
 
 			render: function(){
 
+				//Cache selectors
+				this.$el = $( this.element );
 
 				//add default class
 				this.$el.addClass( this.settings.className );
@@ -117,13 +111,14 @@
 					sliderOptions: this.settings.sliderOptions
 				} ) );
 
+				this.$sliderButtons = this.$el.find( ".yo-range-btn" );
 				//bind events on slider
 				this.bindEvents();
     		return this;
 			},
 
 			bindEvents: function() {
-				this.$sliderButtons.click( this.rangeBtnClicked );
+				this.$sliderButtons.click( (this.rangeBtnClicked).bind(this) );
 
 				this.$el.on( "yo:reset", (function() {
 		      this.reset();
@@ -133,8 +128,8 @@
 
 			reset: function(){
 
-		    this.setSliderValues(-9999);
-		    this.setSliderValues(-9999, 1);
+		    this.setSliderBounds(-9999);
+		    this.setSliderBounds(-9999, 1);
 		    this.highlightsUI();
 		    //store last clicked btn index
 		    this.lastClickedButtonIndex = -9999;
@@ -145,28 +140,27 @@
 		    var self = this;
 		    var $node = $(event.currentTarget);
 		    var index = this.$sliderButtons.index($node);
-
 		    var direction = this.getDirectionToMove(index);
 		    switch(direction){
 		      case "L":
 
 		        if(this.lastClickedButtonIndex === index ||
-		        	this.deActiveBtnAtIndex(index, direction)){
-		          index++;
-		          this.setSliderValues(index);
+		        	this.deActivateBtnAtIndex(index, direction)){
+		          index += 1;
+		          this.setSliderBounds(index);
 
 		        }else{
 		          //if lower limit is not set then set both handle at same index
-		          if(!this.isLowerSliderVarSet()){
-		            this.setSliderValues(index);
-		            this.setSliderValues(index, 1);
+		          if(!this.isLowerBoundSet()){
+		            this.setSliderBounds(index);
+		            this.setSliderBounds(index, 1);
 		          }else{
 		            //if current index is greater than upper limit and direction is L
 		            //then set upper limit to index
 		            if(index > this.getSliderBounds(1)){
-		              this.setSliderValues(index, 1);
+		              this.setSliderBounds(index, 1);
 		            }else{
-		              this.setSliderValues(index);
+		              this.setSliderBounds(index);
 		            }
 
 		          }
@@ -177,20 +171,20 @@
 		      case "R":
 
 		        if(this.lastClickedButtonIndex === index  ||
-		        	this.deActiveBtnAtIndex(index, direction)){
-		          index--;
-		          this.setSliderValues(index, 1);
+		        	this.deActivateBtnAtIndex(index, direction)){
+		          index -= 1;
+		          this.setSliderBounds(index, 1);
 		        }else{
 		          //if upper limit is not set then set both handle at same index
-		          if(!this.isUpperSliderVarSet()){
-		            this.setSliderValues(index);
-		            this.setSliderValues(index, 1);
+		          if(!this.isUpperBoundSet()){
+		            this.setSliderBounds(index);
+		            this.setSliderBounds(index, 1);
 		          }else{
 		            //if current index
 		            if(index < this.getSliderBounds()){
-		              this.setSliderValues(index);
+		              this.setSliderBounds(index);
 		            }else{
-		              this.setSliderValues(index, 1);
+		              this.setSliderBounds(index, 1);
 		            }
 
 		          }
@@ -207,16 +201,16 @@
 		    //check wheather we have to reset slider slider
 		    //if there is no any selected buttons then reset
 		    var l = this.$el.find( ".yo-range-btn.active" ).length;
-		    if( !l ){
+		    if(!l){
 		      this.reset();
 		    }
 
-		    this.trigger( "yo:change", self.getSliderRangeValue() );
+		    this.$el.trigger( "yo:change", self.getSliderRangeValue() );
 
 		    return false;
 
 		  },
-		  deActiveBtnAtIndex: function(index, direction){
+		  deActivateBtnAtIndex: function(index, direction){
 
 		    //if button is active and its first in active buttons list - when direction is L
 		    //if button is active and its last in active buttons list - when direction is R
@@ -237,10 +231,9 @@
 		        break;
 		    }
 
-		    if( !r ){
+		    if(!r){
 		      r = false;
 		    }
-
 		    return r;
 
 		  },
@@ -252,10 +245,10 @@
 		      this.$sliderButtons.eq(i).addClass( "active" );
 		    }
 		  },
-		  isLowerSliderVarSet: function () {
+		  isLowerBoundSet: function () {
 		    return this.sliderVars.lowerBound.index > -1;
 		  },
-		  isUpperSliderVarSet: function () {
+		  isUpperBoundSet: function () {
 		    return this.sliderVars.upperBound.index > -1;
 		  },
 		  getSliderRangeValue: function(){
@@ -286,7 +279,7 @@
 
 		    var sliderLimits = [0, this.sliderMaxIndex];
 		    //now after selection the slider middle will be move
-		    if(this.isLowerSliderVarSet() && this.isUpperSliderVarSet() ){
+		    if(this.isLowerBoundSet() && this.isUpperBoundSet() ){
 		      sliderLimits = [this.getSliderBounds(), this.getSliderBounds(1)];
 		    }
 		    var closest = sliderLimits.reduce(function (prev, curr) {
@@ -295,7 +288,7 @@
 		    return (closest === sliderLimits[1]) ? "R" : "L";
 		  },
 		  getSliderBounds: function (isUpper) {
-		    if(!isUpper){
+		    if(isUpper){
 		      return this.sliderVars.upperBound.index;
 		    }else{
 		      return this.sliderVars.lowerBound.index;
@@ -303,8 +296,8 @@
 		  },
 
 		  //Set slider values on selection
-		  setSliderValues: function (newIndex, isUpper) {
-		    if(!isUpper){
+		  setSliderBounds: function (newIndex, isUpper) {
+		    if(isUpper){
 		      this.sliderVars.upperBound.index = newIndex;
 		    }else{
 		      this.sliderVars.lowerBound.index = newIndex;

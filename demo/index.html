@@ -11,7 +11,28 @@
 		<script>
 			$( function() {
 				$( "#element" ).jqButtonRangeSlider( {
-					propertyName: "a custom value"
+					sliderOptions: [
+				    {
+				      name: 'Very Bad',
+				      value: 1
+				    },{
+				      name: 'Bad',
+				      value: 2
+				    },{
+				      name: 'Good',
+				      value: 3
+				    },{
+				      name: 'Very Good',
+				      value: 4
+				    },{
+				      name: 'Excellent',
+				      value: 5
+				    },{
+				      name: 'POP',
+				      value: 6
+				    }
+				  ]
+
 				} );
 			} );
 		</script>

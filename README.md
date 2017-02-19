@@ -78,4 +78,46 @@ or copy and paste follwing css in your ```head```
 
 ```
 
+Add slick.js before your closing <body> tag, after jQuery (requires jQuery 1.7 +)
+```
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="jq-button-range-slider/jq-button-range-slider.min.js"></script>
+```
+
+Initialize your slider in your script file or an inline script tag
+```
+$(document).ready(function(){
+	$("#slider").jqButtonRangeSlider({
+		sliderOptions: [{
+			name: 'Very Very Bad',
+			value: 'VVB'
+		},{
+			name: 'Very Bad',
+			value: 'VB'
+		},{
+			name: 'Bad',
+			value: 'B'
+		},{
+			name: 'Good',
+			value: 'G'
+		},{
+			name: 'Very Good',
+			value: 'VG'
+		},{
+			name: 'Excellent',
+			value: 'E'
+		},{
+			name: 'Damn Excellent',
+			value: 'DE'
+		}]
+	}).on('yo:change', function(e, ui) {
+		$('#lb').text(ui.lb.value);
+		$('#ub').text(ui.ub.value);
+	});
+	
+});
+
+```
+> NOTE: I highly recommend putting your initialization script in an external JS file.
+
 ## Settings

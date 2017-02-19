@@ -169,3 +169,11 @@ Array of objects with `name` and `value` per slider option/button
 
 JavaScript micro template for rendering button html
 More on [JavaScript Micro-Templating](http://ejohn.org/blog/javascript-micro-templating/)
+
+**className**
+
+**Type:** string
+
+**Default:** yo-button-range-slider
+
+html class for slider 

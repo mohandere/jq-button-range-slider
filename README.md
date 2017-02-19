@@ -1,37 +1,82 @@
-## Welcome to GitHub Pages
+## Jquery Button Range Slider plugin
 
-You can use the [editor on GitHub](https://github.com/mohandere/jq-button-range-slider/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### Features
+- Full Responsive. 
+- Scales with its container.
+- String | Interger value support
+- Fully customisable
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### Demo
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+### Usage
+## Getting Started
+Set up your HTML markup.
+```
+<div id="slider"></div>
+```
+---
+Move the dist/jq-button-range-slider folder into your project
+---
+Add dist/jq-button-range-slider.css in your <head>
+```
+<link rel="stylesheet" type="text/css" href="dist/jq-button-range-slider.css"/>
+```
+OR copy and paste follwing css in your <head>
+```css
+.yo-button-range-slider{
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;
+}
+.yo-btn {
+  padding: 4px 16px;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 0;
+  background: #fff;
+  white-space: nowrap;
+}
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+.yo-btn:last-child {
+	border-right: 1px solid #e0e0e0;
+}
 
-1. Numbered
-2. List
+.touch .yo-btn{
+	white-space: normal;
+}
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+@media screen and (max-width: 767px) {
+  .yo-btn {
+    font-size: 12px;
+  }
+}
+
+.yo-range-btn.active{
+  background: lightgray;
+}
+.yo-range-btn:focus,
+.yo-range-btn.active{
+  box-shadow: none;
+  outline: 0 none !important;
+}
+
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mohandere/jq-button-range-slider/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### Settings

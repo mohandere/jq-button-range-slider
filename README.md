@@ -3,7 +3,7 @@
 ## Features
 - Full Responsive. 
 - Scales with its container.
-- String | Interger value support
+- String and Interger type value support
 - Fully customisable
 
 ## Demo
@@ -32,23 +32,23 @@ or copy and paste follwing css in your ```head```
 	display: flex;
 }
 .yo-btn {
-  padding: 4px 16px;
-  border: 1px solid #e0e0e0;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.42857143;
-  text-align: center;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border-radius: 0;
-  background: #fff;
-  white-space: nowrap;
+	padding: 4px 16px;
+	border: 1px solid #e0e0e0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border-radius: 0;
+	background: #fff;
+	white-space: nowrap;
 }
 
 
@@ -63,17 +63,17 @@ or copy and paste follwing css in your ```head```
 
 @media screen and (max-width: 767px) {
   .yo-btn {
-    font-size: 12px;
+	font-size: 12px;
   }
 }
 
 .yo-range-btn.active{
-  background: lightgray;
+	background: lightgray;
 }
 .yo-range-btn:focus,
 .yo-range-btn.active{
-  box-shadow: none;
-  outline: 0 none !important;
+	box-shadow: none;
+	outline: 0 none !important;
 }
 
 ```

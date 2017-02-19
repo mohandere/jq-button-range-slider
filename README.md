@@ -1,5 +1,5 @@
 ## Features
-- Full Responsive. 
+- Full Responsive.
 - Scales with its container.
 - String and Interger type value support
 - Fully customisable
@@ -69,7 +69,7 @@ $(document).ready(function(){
 		$('#lb').text(ui.lb.value);
 		$('#ub').text(ui.ub.value);
 	});
-	
+
 });
 
 ```
@@ -122,13 +122,13 @@ Array of objects with `name` and `value` per slider option/button
 
 **Type:** string (html)
 
-**Default:** 
+**Default:**
 
 ```html
-<% for ( var i = 0; i < sliderOptions.length; i++ ) { %> 
-<button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>">
-<%=sliderOptions[i].name%>
-</button>
+<% for ( var i = 0; i < sliderOptions.length; i++ ) { %>
+	<button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>">
+		<%=sliderOptions[i].name%>
+	</button>
 <% } %>
 ```
 
@@ -144,4 +144,8 @@ More on [JavaScript Micro-Templating](http://ejohn.org/blog/javascript-micro-tem
 
 **Default:** <code>yo-button-range-slider</code>
 
-html class for slider 
+html class for slider
+
+## Events
+
+## Methods

@@ -40,40 +40,40 @@ Initialize your slider in your script file or an inline script tag
 
 $(document).ready(function(){
 
-	$("#slider").jqButtonRangeSlider({
-		sliderOptions: [{
-			name: "Calcium",
-			value: 20
-		},{
-			name: "Carbon",
-			value: 6
-		},{
-			name: "Gold",
-			value: 79
-		},{
-			name: "Hydrogen",
-			value: 1
-		},{
-			name: "Mercury",
-			value: 80
-		},{
-			name: "	Oxygen",
-			value: 8
-		},{
-			name: "Zinc",
-			value: 30
-		},{
-			name: "Titanium",
-			value: 22
-		}]
-	}).on( "yo:change", function(e, ui) {
+$("#slider").jqButtonRangeSlider({
+	sliderOptions: [{
+		name: "Calcium",
+		value: 20
+	},{
+		name: "Carbon",
+		value: 6
+	},{
+		name: "Gold",
+		value: 79
+	},{
+		name: "Hydrogen",
+		value: 1
+	},{
+		name: "Mercury",
+		value: 80
+	},{
+		name: "	Oxygen",
+		value: 8
+	},{
+		name: "Zinc",
+		value: 30
+	},{
+		name: "Titanium",
+		value: 22
+	}]
+}).on( "yo:change", function(e, ui) {
 
-		$("#lb").text(ui.lb.value);
-		$("#ub").text(ui.ub.value);
+	$("#lb").text(ui.lb.value);
+	$("#ub").text(ui.ub.value);
 
-		//Fetch products within given range from server
-		//Do ajax
-	});
+	//Fetch products within given range from server
+	//Do ajax
+});
 
 });
 
@@ -93,30 +93,30 @@ $(document).ready(function(){
 Array of objects with `name` and `value` per slider option/button
 
 **Example:**
-```javascript
+```json
 [
-	{
-	  name: "WHITE",
-	  value: "#FFFFFF"
-	},{
-	  name: "BLACK",
-	  value: "#000000"
-	},{
-	  name: "RED",
-	  value: "#FF0000"
-	},{
-	  name: "White",
-	  value: "#fff"
-	},{
-	  name: "YELLOW",
-	  value: "#FFFF00"
-	},{
-	  name: "GREEN",
-	  value: "#008000"
-	},{
-	  name: "BLUE",
-	  value: "#0000FF"
-	}
+{
+  name: "WHITE",
+  value: "#FFFFFF"
+},{
+  name: "BLACK",
+  value: "#000000"
+},{
+  name: "RED",
+  value: "#FF0000"
+},{
+  name: "White",
+  value: "#fff"
+},{
+  name: "YELLOW",
+  value: "#FFFF00"
+},{
+  name: "GREEN",
+  value: "#008000"
+},{
+  name: "BLUE",
+  value: "#0000FF"
+}
 ]
 
 ```

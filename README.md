@@ -1,5 +1,3 @@
-# Jquery Button Range Slider plugin
-
 ## Features
 - Full Responsive. 
 - Scales with its container.

@@ -219,6 +219,6 @@ Destroy current slider
 
 Reset current slider
 
-###Go Get It
+### Go Get It
 
 [Download Now](https://github.com/mohandere/jq-button-range-slider/)

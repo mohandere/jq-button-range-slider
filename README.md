@@ -10,17 +10,19 @@
 
 ## Getting Started
 Set up your HTML markup.
-```
+```ahtml
 <div id="slider"></div>
 ```
----
+
 Move the dist/jq-button-range-slider folder into your project
----
-Add dist/jq-button-range-slider.css in your <head>
-```
+
+Add dist/jq-button-range-slider.css in your ```<head>```
+
+```css
 <link rel="stylesheet" type="text/css" href="dist/jq-button-range-slider.css"/>
 ```
-OR copy and paste follwing css in your <head>
+or copy and paste follwing css in your ```head```
+
 ```css
 .yo-button-range-slider{
 	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */

@@ -28,12 +28,14 @@ or copy and paste the css from `dist/jq-button-range-slider.css` in your main fi
 ---
 
 Add slick.js before your closing <body> tag, after jQuery (requires jQuery 1.7 +)
-```
+
+```html
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="jq-button-range-slider/jq-button-range-slider.min.js"></script>
 ```
 
 Initialize your slider in your script file or an inline script tag
+
 ```javascript
 
 $(document).ready(function(){
@@ -122,7 +124,7 @@ Array of objects with `name` and `value` per slider option/button
 
 **Default:** 
 
-```javascript
+```html
 <% for ( var i = 0; i < sliderOptions.length; i++ ) { %> 
 <button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>">
 <%=sliderOptions[i].name%>

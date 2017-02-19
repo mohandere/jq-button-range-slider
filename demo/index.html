@@ -7,36 +7,48 @@
 		<script src="../dist/js/jq-button-range-slider.js"></script>
 	</head>
 	<body>
-		<div id="element"></div>
+		<h1>Jquery Button Range Slider Demo</h1>
+		<h2>Example:</h2>
+		<div id="demo-1"></div>
+		<div id="result">
+			<h3>Result:</h3>
+			<p>Lower Bound value: <span id="lb"></span></p>
+			<p>Upper Bound value: <span id="ub"></span></p>
+		</div>
+
 		<script>
 			$( function() {
-				$( "#element" ).jqButtonRangeSlider( {
+				$( "#demo-1" ).jqButtonRangeSlider({
 					sliderOptions: [
 						{
 				      name: 'Very Very Bad',
-				      value: 1
+				      value: 'VVB'
 				    },{
 				      name: 'Very Bad',
-				      value: 2
+				      value: 'VB'
 				    },{
 				      name: 'Bad',
-				      value: 2
+				      value: 'B'
 				    },{
 				      name: 'Good',
-				      value: 4
+				      value: 'G'
 				    },{
 				      name: 'Very Good',
-				      value: 5
+				      value: 'VG'
 				    },{
 				      name: 'Excellent',
-				      value: 6
+				      value: 'E'
 				    },{
-				      name: 'Damn sExcellent',
-				      value: 7
+				      name: 'Damn Excellent',
+				      value: 'DE'
 				    }
 				  ]
 
-				} );
+				}).on('yo:change', function(e, ui) {
+					$('#lb').text(ui.lb.value);
+					$('#ub').text(ui.ub.value);
+				});
+
 			} );
 		</script>
 	</body>

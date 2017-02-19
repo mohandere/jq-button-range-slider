@@ -260,7 +260,7 @@
 				    index: this.sliderVars.lowerBound.index,
 				    value: lv,
 				  },
-				  "up": {
+				  "ub": {
 				    index: this.sliderVars.upperBound.index,
 				    value: uv,
 				  }

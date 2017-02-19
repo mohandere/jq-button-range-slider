@@ -2,6 +2,7 @@
 - Full Responsive.
 - Scales with its container.
 - String and Interger type value support
+- Supports touch-devices (iPhone, iPad, Nexus, etc.).
 - Fully customisable
 
 ## Demo
@@ -172,9 +173,15 @@ Fires after first initialization.
 
 **yo:change**
 
-**Arguments:** event, ui, slider
+**Arguments:** event, range, ui, slider
 
 Fires after slider change
+
+<code>values</code> Array of selected values
+
+```javascript
+["#0000FF", "#FFFFFF"]
+```
 
 <code>ui</code> hash will look like -
 

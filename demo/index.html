@@ -3,6 +3,11 @@
 	<head>
 		<title>jQuery Boilerplate</title>
 		<link type="text/css" rel="stylesheet" href="../src/css/jq-button-range-slider.css" />
+		<style type="text/css">
+			body{
+				padding: 30px;
+			}
+		</style>
 		<script src="../node_modules/jquery/dist/jquery.js"></script>
 		<script src="../dist/js/jq-button-range-slider.js"></script>
 	</head>
@@ -12,39 +17,41 @@
 		<div id="demo-1"></div>
 		<div id="result">
 			<h3>Result:</h3>
-			<p>Lower Bound value: <span id="lb"></span></p>
-			<p>Upper Bound value: <span id="ub"></span></p>
+			<p>Selected range: <span id="rg"></span></p>
+			<p>Value at Lower Bound : <span id="lb"></span></p>
+			<p>Value at Upper Bound: <span id="ub"></span></p>
 		</div>
 
 		<script>
 			$( function() {
 				$( "#demo-1" ).jqButtonRangeSlider({
-					sliderOptions: [
-						{
-				      name: 'Very Very Bad',
-				      value: 'VVB'
-				    },{
-				      name: 'Very Bad',
-				      value: 'VB'
-				    },{
-				      name: 'Bad',
-				      value: 'B'
-				    },{
-				      name: 'Good',
-				      value: 'G'
-				    },{
-				      name: 'Very Good',
-				      value: 'VG'
-				    },{
-				      name: 'Excellent',
-				      value: 'E'
-				    },{
-				      name: 'Damn Excellent',
-				      value: 'DE'
-				    }
-				  ]
-
-				}).on('yo:change', function(e, ui) {
+					sliderOptions: [{
+						name: "Calcium",
+						value: 20
+					},{
+						name: "Carbon",
+						value: 6
+					},{
+						name: "Gold",
+						value: 79
+					},{
+						name: "Hydrogen",
+						value: 1
+					},{
+						name: "Mercury",
+						value: 80
+					},{
+						name: "	Oxygen",
+						value: 8
+					},{
+						name: "Zinc",
+						value: 30
+					},{
+						name: "Titanium",
+						value: 22
+					}]
+				}).on('yo:change', function(e, values, ui, slider) {
+					$('#rg').text(values);
 					$('#lb').text(ui.lb.value);
 					$('#ub').text(ui.ub.value);
 				});

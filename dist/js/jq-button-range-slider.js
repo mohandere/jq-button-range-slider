@@ -12,15 +12,6 @@
 
 	"use strict";
 
-		// undefined is used here as the undefined global variable in ECMAScript 3 is
-		// mutable (ie. it can be changed by someone else). undefined isn't really being
-		// passed in so we can ensure the value of it is truly undefined. In ES5, undefined
-		// can no longer be modified.
-
-		// window and document are passed through as local variables rather than global
-		// as this (slightly) quickens the resolution process and can be more efficiently
-		// minified (especially when both are regularly referenced in your plugin).
-
 		// Create the defaults once
 		var pluginName = "jqButtonRangeSlider",
 				defaults = {
@@ -31,11 +22,8 @@
 
 		// The actual plugin constructor
 		function JqButtonRangeSlider ( element, options ) {
-			this.element = element;
 
-			// jQuery has an extend method which merges the contents of two or
-			// more objects, storing the result in the first object. The first object
-			// is generally empty as we don't want to alter the default options for
+			this.element = element;
 			// future instances of the plugin
 			this.settings = $.extend( {}, defaults, options );
 			this._defaults = defaults;
@@ -122,6 +110,9 @@
 				this.$sliderButtons = this.$el.find( ".yo-range-btn" );
 				//bind events on slider
 				this.bindEvents();
+
+				this.$el.trigger('yo:init');
+
     		return this;
 			},
 
@@ -132,17 +123,22 @@
 		      this.reset();
 		    }).bind( this ) );
 
+		    this.$el.on( "yo:destroy", (function() {
+		      this.destroy();
+		    }).bind( this ) );
+
 			},
-
 			reset: function(){
-
 		    this.setSliderBounds(-9999);
 		    this.setSliderBounds(-9999, 1);
 		    this.highlightsUI();
 		    //store last clicked btn index
 		    this.lastClickedButtonIndex = -9999;
 		  },
-
+			destroy: function(){
+				this.$el.unbind();
+				this.$el.html('');
+			},
 			rangeBtnClicked: function (event) {
 
 		    var self = this;
@@ -213,7 +209,7 @@
 		      this.reset();
 		    }
 
-		    this.$el.trigger( "yo:change", self.getSliderRangeValue() );
+		    this.$el.trigger( "yo:change", [self.getSliderValue(), self.getSliderRangeValue(), this.$el] );
 
 		    return false;
 

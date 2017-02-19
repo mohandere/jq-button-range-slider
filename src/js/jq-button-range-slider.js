@@ -201,7 +201,7 @@
 		      this.reset();
 		    }
 
-		    this.$el.trigger( "yo:change", [self.getSliderRangeValue(), this.$el] );
+		    this.$el.trigger( "yo:change", [self.getSliderValue(), self.getSliderRangeValue(), this.$el] );
 
 		    return false;
 

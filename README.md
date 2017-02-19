@@ -8,7 +8,7 @@
 
 ## Getting Started
 Set up your HTML markup.
-```ahtml
+```html
 <div id="slider"></div>
 ```
 
@@ -34,7 +34,8 @@ Add slick.js before your closing <body> tag, after jQuery (requires jQuery 1.7 +
 ```
 
 Initialize your slider in your script file or an inline script tag
-```
+```javascript
+
 $(document).ready(function(){
 	$("#slider").jqButtonRangeSlider({
 		sliderOptions: [{
@@ -85,7 +86,7 @@ $(document).ready(function(){
 Array of objects with `name` and `value` per slider option/button
 
 **Example:**
-```
+```javascript
 [
 	{
 	  name: 'WHITE',
@@ -121,7 +122,7 @@ Array of objects with `name` and `value` per slider option/button
 
 **Default:** 
 
-```
+```javascript
 <% for ( var i = 0; i < sliderOptions.length; i++ ) { %> 
 <button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>">
 <%=sliderOptions[i].name%>
@@ -139,6 +140,6 @@ More on [JavaScript Micro-Templating](http://ejohn.org/blog/javascript-micro-tem
 
 **Type:** string
 
-**Default:** yo-button-range-slider
+**Default:** <code>yo-button-range-slider</code>
 
 html class for slider 

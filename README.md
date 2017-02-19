@@ -157,7 +157,9 @@ Array of objects with `name` and `value` per slider option/button
 ]
 
 ```
+
 ---
+
 **template**
 
 **Type:** string (html)|object (DOM node)
@@ -174,6 +176,8 @@ Array of objects with `name` and `value` per slider option/button
 JavaScript micro template for rendering button html
 
 More on [JavaScript Micro-Templating](http://ejohn.org/blog/javascript-micro-templating/)
+
+---
 
 **className**
 

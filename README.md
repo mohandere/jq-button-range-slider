@@ -7,6 +7,10 @@
 
 ## Demo
 
+![alt text](https://raw.githubusercontent.com/mohandere/jq-button-range-slider/master/demo/Screenshot.png "Slider demo")
+
+##### JsFiddle -
+
 ## Getting Started
 Set up your HTML markup.
 ```html

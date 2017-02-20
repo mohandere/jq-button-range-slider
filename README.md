@@ -111,9 +111,6 @@ Array of objects with `name` and `value` per slider option/button
 	  name: "RED",
 	  value: "#FF0000"
 	},{
-	  name: "White",
-	  value: "#fff"
-	},{
 	  name: "YELLOW",
 	  value: "#FFFF00"
 	},{

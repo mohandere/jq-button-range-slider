@@ -5,11 +5,11 @@
 - Supports touch-devices (iPhone, iPad, Nexus, etc.).
 - Fully customisable
 
-## Demo
+## Demo/Examples
 
 ![alt text](https://raw.githubusercontent.com/mohandere/jq-button-range-slider/master/demo/Screenshot.png "Slider demo")
 
-##### JsFiddle -
+##### [JsFiddle Examples](https://jsfiddle.net/mohandere/2qnk0q04/43/)
 
 ## Getting Started
 Set up your HTML markup.

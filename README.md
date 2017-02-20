@@ -175,6 +175,8 @@ $slider.on("yo:change", function(event, ui, slider){
 
 Fires after first initialization.
 
+---
+
 **yo:change**
 
 **Arguments:** event, range, ui, slider
@@ -224,11 +226,15 @@ $slider.trigger( "yo:reset" );
 
 Destroy current slider
 
+---
+
 **yo:reset**
 
 **Arguments:** none
 
 Reset current slider
+
+---
 
 ### Go Get It
 

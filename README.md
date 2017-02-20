@@ -42,10 +42,11 @@ Add slick.js before your closing <body> tag, after jQuery (requires jQuery 1.7 +
 Initialize your slider in your script file or an inline script tag
 
 ```javascript
-
+//Initialize when document is ready
 $(document).ready(function(){
 
-	$("#slider").jqButtonRangeSlider({
+	var $slider = $("#slider");
+	$slider.jqButtonRangeSlider({
 		sliderOptions: [{
 			name: "Calcium",
 			value: 20

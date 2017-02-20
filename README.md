@@ -240,3 +240,5 @@ Reset current slider
 ### Go Get It
 
 [Download Now](https://github.com/mohandere/jq-button-range-slider/)
+
+[View on Github](https://github.com/mohandere/jq-button-range-slider/)

@@ -217,7 +217,7 @@ var $slider = $(".your-element");
 $slider.jqButtonRangeSlider( "yoReset" );
 
 //Set new range
-$slider.jqButtonRangeSlider( "yoReset", {
+$slider.jqButtonRangeSlider( "yoSetRange", {
   lb: 20,
   ub: 50
 } );

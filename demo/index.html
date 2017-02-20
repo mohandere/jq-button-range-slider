@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>jQuery Boilerplate</title>
+		<title>jqButtonRangeSlider</title>
 		<link type="text/css" rel="stylesheet" href="../src/css/jq-button-range-slider.css" />
 		<style type="text/css">
 			body{
@@ -12,18 +12,43 @@
 		<script src="../dist/js/jq-button-range-slider.js"></script>
 	</head>
 	<body>
-		<h1>Jquery Button Range Slider Demo</h1>
-		<h2>Example:</h2>
-		<div id="demo-1"></div>
-		<div id="result">
-			<h3>Result:</h3>
-			<p>Selected range: <span id="rg"></span></p>
-			<p>Value at Lower Bound : <span id="lb"></span></p>
-			<p>Value at Upper Bound: <span id="ub"></span></p>
+		<div class="container">
+			<h1>Jquery Button Range Slider Demo</h1>
+			<h2>Example #1:</h2>
+			<div id="demo-1"></div>
+			<div id="demo-1-result">
+				<h3>Result:</h3>
+				<p>Selected range: <span class="rg"></span></p>
+				<p>Value at Lower Bound : <span class="lb"></span></p>
+				<p>Value at Upper Bound: <span class="ub"></span></p>
+			</div>
+			
+			<h2>Example #2:</h2>
+			<div id="demo-2"></div>
+			<div id="demo-2-result">
+				<h3>Result:</h3>
+				<p>Selected range: <span class="rg"></span></p>
+				<p>Value at Lower Bound : <span class="lb"></span></p>
+				<p>Value at Upper Bound: <span class="ub"></span></p>
+			</div>
+
+
+			<h2>Example #3: Set range</h2>
+			<div id="demo-3"></div>
+			<p style="margin:20px 0;"><a href="#" id="demo-3-set-range">Click here</a> to set range from `Carbon` to `Oxygen`</p>
+
+			<div id="demo-3-result">
+				<h3>Result:</h3>
+				<p>Selected range: <span class="rg"></span></p>
+				<p>Value at Lower Bound : <span class="lb"></span></p>
+				<p>Value at Upper Bound: <span class="ub"></span></p>
+			</div>
+			
 		</div>
 
 		<script>
 			$( function() {
+
 				$( "#demo-1" ).jqButtonRangeSlider({
 					sliderOptions: [{
 						name: "Calcium",
@@ -51,12 +76,82 @@
 						value: 22
 					}]
 				}).on('yo:change', function(e, values, ui, slider) {
-					$('#rg').text(values);
-					$('#lb').text(ui.lb.value);
-					$('#ub').text(ui.ub.value);
+					$('#demo-1-result .rg').text(values);
+					$('#demo-1-result .lb').text(ui.lb.value);
+					$('#demo-1-result .ub').text(ui.ub.value);
+				});
+				
+				$( "#demo-2" ).jqButtonRangeSlider({
+					sliderOptions: [{
+							name: "WHITE",
+							value: "#FFFFFF"
+						},{
+							name: "BLACK",
+							value: "#000000"
+						},{
+							name: "RED",
+							value: "#FF0000"
+						},{
+							name: "YELLOW",
+							value: "#FFFF00"
+						},{
+							name: "GREEN",
+							value: "#008000"
+						},{
+							name: "BLUE",
+							value: "#0000FF"
+						}]
+				}).on('yo:change', function(e, values, ui, slider) {
+					$('#demo-2-result .rg').text(values);
+					$('#demo-2-result .lb').text(ui.lb.value);
+					$('#demo-2-result .ub').text(ui.ub.value);
 				});
 
-			} );
+			$( "#demo-3" ).jqButtonRangeSlider({
+					sliderOptions: [{
+						name: "Calcium",
+						value: 20
+					},{
+						name: "Carbon",
+						value: 6
+					},{
+						name: "Gold",
+						value: 79
+					},{
+						name: "Hydrogen",
+						value: 1
+					},{
+						name: "Mercury",
+						value: 80
+					},{
+						name: "	Oxygen",
+						value: 8
+					},{
+						name: "Zinc",
+						value: 30
+					},{
+						name: "Titanium",
+						value: 22
+					}]
+				}).on('yo:change', function(e, values, ui, slider) {
+					$('#demo-3-result .rg').text(values);
+					$('#demo-3-result .lb').text(ui.lb.value);
+					$('#demo-3-result .ub').text(ui.ub.value);
+				});
+
+				$('#demo-3-set-range').click(function(e){
+					e.preventDefault();
+					console.log('clicked!');
+					
+					//Set new range
+					$( "#demo-3" ).jqButtonRangeSlider( "yoSetRange", {
+						lb: 6,
+						ub: 8
+					} );
+				});
+
+		} );
+
 		</script>
 	</body>
 </html>

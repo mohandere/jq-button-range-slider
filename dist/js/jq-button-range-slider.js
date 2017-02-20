@@ -120,24 +120,13 @@
 				this.$sliderButtons.click( (this.rangeBtnClicked).bind(this) );
 
 				this.$el.on( "yo:reset", (function() {
-		      this.reset();
+		      this.yoReset();
 		    }).bind( this ) );
 
 		    this.$el.on( "yo:destroy", (function() {
-		      this.destroy();
+		      this.yoDestroy();
 		    }).bind( this ) );
 
-			},
-			reset: function(){
-		    this.setSliderBounds(-9999);
-		    this.setSliderBounds(-9999, 1);
-		    this.highlightsUI();
-		    //store last clicked btn index
-		    this.lastClickedButtonIndex = -9999;
-		  },
-			destroy: function(){
-				this.$el.unbind();
-				this.$el.html('');
 			},
 			rangeBtnClicked: function (event) {
 
@@ -307,6 +296,33 @@
 		      this.sliderVars.lowerBound.index = newIndex;
 		    }
 		  },
+
+		  //Plugins internal methods
+		  //Exposed to users
+		  yoReset: function(){
+		    this.setSliderBounds(-9999);
+		    this.setSliderBounds(-9999, 1);
+		    this.highlightsUI();
+		    //store last clicked btn index
+		    this.lastClickedButtonIndex = -9999;
+		  },
+			//destroy current slider instance
+			yoDestroy: function(){
+				this.$el.unbind();
+				this.$el.html('');
+			},
+
+			//set new upper and lower bound
+			yoSetRange: function(uiHash){
+
+				//check if lb and ub is valid or not
+				this.sliderVars.lowerBound.value = uiHash.lb;
+				this.sliderVars.upperBound.value = uiHash.ub;
+
+				//get indices of new lower and uper bound
+				this.highlightsUI();
+			},
+
 
 		} );
 

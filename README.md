@@ -195,11 +195,11 @@ Fires after slider change
 ```javascript
 
 {
-  "lb": {
+  lb: {
     index: 2, //index of button at lower bound
     value: "#FF0000"
   },
-  "ub": {
+  ub: {
     index: 5, //index of button at upper bound
     value: "#000000"
   }
@@ -215,13 +215,20 @@ Methods are called on slick instances through trigger:
 
 ```javascript
 var $slider = $(".your-element");
+
 // Reset slider
-$slider.trigger( "yo:reset" );
+$slider.jqButtonRangeSlider( "yoReset" );
+
+//Set new range
+$slider.jqButtonRangeSlider( "yoReset", {
+  lb: 20,
+  ub: 50
+} );
 
 ```
 
 
-**yo:destroy**
+**yoDestroy**
 
 **Arguments:** none
 
@@ -229,7 +236,23 @@ Destroy current slider
 
 ---
 
-**yo:reset**
+**yoSetRange**
+
+**Arguments:** <code>ui</code>
+
+Set new range. <code>ui</code> will be like below with new range
+
+```javascript
+{
+  "lb": "#FF0000",
+  "ub": "#FFFF00"
+}
+
+```
+
+---
+
+**yoReset**
 
 **Arguments:** none
 

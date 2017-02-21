@@ -32,7 +32,7 @@ or copy and paste the css from `dist/jq-button-range-slider.css` in your main fi
 
 ---
 
-Add slick.js before your closing <body> tag, after jQuery (requires jQuery 1.7 +)
+Add jq-button-range-slider.js before your closing <body> tag, after jQuery (requires jQuery 1.7 +)
 
 ```html
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -223,7 +223,7 @@ When slider is destroyed.
 
 ## Methods
 
-Methods are called on slick instances through trigger:
+Methods are called on JqButtonRangeSlider instances through the jqButtonRangeSlider method itself.
 
 ```javascript
 var $slider = $(".your-element");

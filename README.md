@@ -210,7 +210,7 @@ Fires after slider change
 
 **Arguments:** event, slider
 
-Fires after first initialization.
+Fires after slider reset to intial values.
 
 ---
 

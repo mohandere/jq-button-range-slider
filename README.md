@@ -36,7 +36,7 @@ Add slick.js before your closing <body> tag, after jQuery (requires jQuery 1.7 +
 
 ```html
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="jq-button-range-slider/jq-button-range-slider.min.js"></script>
+<script type="text/javascript" src="dist/jq-button-range-slider.min.js"></script>
 ```
 
 Initialize your slider in your script file or an inline script tag
@@ -72,7 +72,7 @@ $(document).ready(function(){
 			name: "Titanium",
 			value: 22
 		}]
-	}).on( "yo:change", function(e, ui) {
+	}).on("afterChange", function(e, ui) {
 
 		$("#lb").text(ui.lb.value);
 		$("#ub").text(ui.ub.value);
@@ -133,7 +133,7 @@ Array of objects with `name` and `value` per slider option/button
 **Default:**
 
 ```
-<% for ( var i = 0; i < sliderOptions.length; i++ ) { %>
+<% for (var i = 0; i < sliderOptions.length; i++) { %>
 	<button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>">
 		<%=sliderOptions[i].name%>
 	</button>
@@ -161,21 +161,21 @@ Use them as shown below:
 ```javascript
 var $slider = $(".your-element");
 // On change event
-$slider.on("yo:change", function(event, ui, slider){
+$slider.on("afterChange", function(event, ui, slider){
   console.log(ui);
 });
 
 ```
 
-**yo:init**
+**init**
 
-**Arguments:** event, slider
+**Arguments:** slider
 
 Fires after first initialization.
 
 ---
 
-**yo:change**
+**afterChange**
 
 **Arguments:** event, range, ui, slider
 
@@ -204,6 +204,21 @@ Fires after slider change
 
 ```
 
+---
+
+**reset**
+
+**Arguments:** event, slider
+
+Fires after first initialization.
+
+---
+
+**destroy**
+
+**Arguments:** event, slider
+
+When slider is destroyed.
 
 
 ## Methods
@@ -214,18 +229,18 @@ Methods are called on slick instances through trigger:
 var $slider = $(".your-element");
 
 // Reset slider
-$slider.jqButtonRangeSlider( "yoReset" );
+$slider.jqButtonRangeSlider("reset");
 
 //Set new range
-$slider.jqButtonRangeSlider( "yoSetRange", {
+$slider.jqButtonRangeSlider("setRange", {
   lb: 20,
   ub: 50
-} );
+});
 
 ```
 
 
-**yoDestroy**
+**destroy**
 
 **Arguments:** none
 
@@ -233,7 +248,7 @@ Destroy current slider
 
 ---
 
-**yoSetRange**
+**setRange**
 
 **Arguments:** <code>ui</code>
 
@@ -249,7 +264,7 @@ Set new range. <code>ui</code> will be like below with new range
 
 ---
 
-**yoReset**
+**reset**
 
 **Arguments:** none
 

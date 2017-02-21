@@ -1,5 +1,5 @@
 /*
- *  jq-button-range-slider - v1.0.0
+ *  jq-button-range-slider - v1.0.2
  *  jQuery range slider plugin with buttons as a values.
  *  https://mohandere.github.io/jq-button-range-slider/
  *

@@ -63,9 +63,14 @@
           //calculate max index
           _.sliderMaxIndex = _.sliderLength - 1;
 
+
+          _.slideHandler = $.proxy(_.slideHandler, _);
+          _.resizeHandler = $.proxy(_.resizeHandler, _);
+
+
           _.instanceUid = instanceUid++;
 
-          _.render();
+          _.init();
 
       }
       return JqButtonRangeSlider;
@@ -104,7 +109,7 @@
     };
 
 
-    JqButtonRangeSlider.prototype.render = function(){
+    JqButtonRangeSlider.prototype.init = function(){
       var _ = this;
       //add default class
       _.$el.addClass(_.options.className);

@@ -6,15 +6,6 @@
  *  Made by Mohan Dere
  *  Under MIT License
  */
-/*!
- * jq-button-range-slider 1.0.0
- * https://mohandere.github.io/jq-button-range-slider/
- * @license MIT licensed
- *
- * Copyright (C) 2017 geekymohan.wordpress.com - A project by Mohan Dere
- */
-
-
 /* global window, document, define, jQuery */
 (function(factory) {
     'use strict';
@@ -43,7 +34,7 @@
           _.defaults = {
               className: "yo-button-range-slider",
               sliderOptions: [],
-              template: '<% for ( var i = 0; i < sliderOptions.length; i++ ) { %> <button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>"><%=sliderOptions[i].name%></button><% } %>',
+              template: '<% for (var i = 0; i < sliderOptions.length; i++) { %> <button type="button" class="yo-btn yo-range-btn" value="<%=sliderOptions[i].value%>"><%=sliderOptions[i].name%></button><% } %>',
           };
 
           _.options = $.extend({}, _.defaults, settings);
@@ -63,14 +54,14 @@
           //calculate max index
           _.sliderMaxIndex = _.sliderLength - 1;
 
-
+          //bind this context
           _.slideHandler = $.proxy(_.slideHandler, _);
           _.resizeHandler = $.proxy(_.resizeHandler, _);
 
 
           _.instanceUid = instanceUid++;
 
-          _.init();
+          _.init(true);
 
       }
       return JqButtonRangeSlider;
@@ -105,17 +96,17 @@
             .split("\r").join("\\'") + "');}return p.join('');");
 
       // Provide some basic currying to the user
-      return data ? fn( data ) : fn;
+      return data ? fn(data) : fn;
     };
 
-
-    JqButtonRangeSlider.prototype.init = function(){
+    //init slider
+    JqButtonRangeSlider.prototype.init = function(creation){
       var _ = this;
       //add default class
       _.$el.addClass(_.options.className);
 
       //load html inside element
-      _.$el.html( _.tmpl(_.options.template, {
+      _.$el.html(_.tmpl(_.options.template, {
         sliderOptions: _.options.sliderOptions
       }));
 
@@ -128,6 +119,11 @@
       _.$el
         //when resizing the site, we adjust the heights of the sections, slimScroll...
         .resize(_.resizeHandler);
+
+      if (creation) {
+        _.$el.trigger('init', [_]);
+      }
+
     };
 
     JqButtonRangeSlider.prototype.slideHandler = function(event){
@@ -194,7 +190,8 @@
       if (!l) {
         _.reset();
       }
-      _.$el.trigger("yo:change", [_.getSliderValue(), _.getSliderRangeValue(), _.$el]);
+      _.$el.trigger("afterChange", [_.getSliderValue(), _.getSliderRangeValue(), _]);
+
       return false;
     };
 
@@ -202,7 +199,7 @@
       var _ = this;
       var sliderLimits = [0, _.sliderMaxIndex];
       //now after selection the slider middle will be move
-      if(_.isLowerBoundSet() && _.isUpperBoundSet() ){
+      if(_.isLowerBoundSet() && _.isUpperBoundSet()){
         sliderLimits = [_.getSliderBounds(), _.getSliderBounds(1)];
       }
       var closest = sliderLimits.reduce(function (prev, curr) {
@@ -241,10 +238,10 @@
 
     JqButtonRangeSlider.prototype.highlightsUI = function(){
       var _ = this;
-      _.$sliderButtons.removeClass( "active" );
+      _.$sliderButtons.removeClass("active");
       for (var i = _.sliderVars.lowerBound.index;
         i <= _.sliderVars.upperBound.index; i++) {
-        _.$sliderButtons.eq(i).addClass( "active" );
+        _.$sliderButtons.eq(i).addClass("active");
       }
     };
 
@@ -311,14 +308,17 @@
       _.highlightsUI();
       //store last clicked btn index
       _.lastClickedButtonIndex = -9999;
+      _.$el.trigger('reset', [_]);
+
     };
 
     //destroy current slider instance
     JqButtonRangeSlider.prototype.destroy = function() {
       var _ = this;
-      $.data(_.$el, 'jqButtonRangeSlider', null);
-      _.$el.unbind();
-      _.$el.html('');
+      _.$sliderButtons.unbind();
+      _.$sliderButtons.remove();
+      _.$el.removeClass(_.options.className);
+      _.$el.trigger('destroy', [_]);
     };
 
     //set new upper and lower bound
@@ -326,7 +326,7 @@
 
       var _ = this;
       //check if lb and ub is valid or not
-      $.each(_.settings.sliderOptions, function(index, option) {
+      $.each(_.options.sliderOptions, function(index, option) {
         if (option.value === uiHash.lb) {
           _.sliderVars.lowerBound.index = index;
           _.sliderVars.lowerBound.value = uiHash.lb;
@@ -342,11 +342,14 @@
       _.highlightsUI();
     };
 
-    JqButtonRangeSlider.prototype.resizeHandler = function(e){
-
+    JqButtonRangeSlider.prototype.resizeHandler = function(){
+      //do resize operation
     };
 
-
+    //get current slider
+    JqButtonRangeSlider.prototype.getSlider = function() {
+      return this;
+    };
 
 
     $.fn.jqButtonRangeSlider = function() {
@@ -357,12 +360,16 @@
             i,
             ret;
         for (i = 0; i < l; i++) {
-            if (typeof opt == 'object' || typeof opt == 'undefined')
-                _[i].jqButtonRangeSlider = new JqButtonRangeSlider(_[i], opt);
-            else
-                ret = _[i].jqButtonRangeSlider[opt].apply(_[i].jqButtonRangeSlider, args);
-            if (typeof ret != 'undefined') return ret;
+          if (typeof opt == "object" || typeof opt == "undefined"){
+            _[i].jqButtonRangeSlider = new JqButtonRangeSlider(_[i], opt);
+          } else{
+            ret = _[i].jqButtonRangeSlider[opt].apply(_[i].jqButtonRangeSlider, args);
+          }
+          if (typeof ret != "undefined"){
+            return ret;
+          }
         }
+
         return _;
     };
 

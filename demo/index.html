@@ -35,7 +35,14 @@
 
 			<h2>Example #3: Set range</h2>
 			<div id="demo-3"></div>
-			<p style="margin:20px 0;"><a href="#" id="demo-3-set-range">Click here</a> to set range from `Carbon` to `Oxygen`</p>
+			<p style="margin:20px 0;"><a href="#" id="demo-3-reset">Click here</a> to reset slider !</p>
+
+			<p style="margin:20px 0;"><a href="#" id="demo-3-destory">Click here</a> to destroy slider !</p>
+
+
+			<p style="margin:20px 0;"><a href="#" id="demo-3-range">Click here</a> to set range from `Carbon` to `Oxygen` !</p>
+
+
 
 			<div id="demo-3-result">
 				<h3>Result:</h3>
@@ -75,7 +82,7 @@
 						name: "Titanium",
 						value: 22
 					}]
-				}).on('yo:change', function(e, values, ui, slider) {
+				}).on('afterChange', function(e, values, ui, slider) {
 					$('#demo-1-result .rg').text(values);
 					$('#demo-1-result .lb').text(ui.lb.value);
 					$('#demo-1-result .ub').text(ui.ub.value);
@@ -101,7 +108,7 @@
 							name: "BLUE",
 							value: "#0000FF"
 						}]
-				}).on('yo:change', function(e, values, ui, slider) {
+				}).on('afterChange', function(e, values, ui, slider) {
 					$('#demo-2-result .rg').text(values);
 					$('#demo-2-result .lb').text(ui.lb.value);
 					$('#demo-2-result .ub').text(ui.ub.value);
@@ -133,21 +140,30 @@
 						name: "Titanium",
 						value: 22
 					}]
-				}).on('yo:change', function(e, values, ui, slider) {
+				}).on('afterChange', function(e, values, ui, slider) {
 					$('#demo-3-result .rg').text(values);
 					$('#demo-3-result .lb').text(ui.lb.value);
 					$('#demo-3-result .ub').text(ui.ub.value);
+				})
+
+
+				$('#demo-3-reset').click(function(e){
+					e.preventDefault();
+					$( "#demo-3" ).jqButtonRangeSlider( "reset");
 				});
 
-				$('#demo-3-set-range').click(function(e){
+				$('#demo-3-range').click(function(e){
 					e.preventDefault();
-					console.log('clicked!');
-
-					//Set new range
-					$( "#demo-3" ).jqButtonRangeSlider( "yoSetRange", {
+					$( "#demo-3" ).jqButtonRangeSlider( "setRange", {
 						lb: 6,
-						ub: 8
-					} );
+						ub: 8,
+					});
+				});
+
+
+				$('#demo-3-destory').click(function(e){
+					e.preventDefault();
+					$( "#demo-3" ).jqButtonRangeSlider( "destroy");
 				});
 
 		} );

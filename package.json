@@ -7,9 +7,9 @@
   "bugs": {
     "url": "https://github.com/mohandere/jq-button-range-slider/issues"
   },
-  "description": "jQuery range slider plugin with buttons as a values.",
+  "description": "jQuery range slider plugin with buttons.",
   "dependencies": {
-    "jquery": ">=1.5.1"
+    "jquery": ">=1.7"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -31,13 +31,14 @@
   "gitHead": "a270f97ba531ecf52de280bdb3ea56d3c8c0122b",
   "homepage": "https://mohandere.github.io/jq-button-range-slider/",
   "keywords": [
-    "jquery-plugin",
     "jquery",
-    "plugins",
     "range-slider",
-    "button-range-slider"
+    "button-range-slider",
+    "range",
+    "slider"
   ],
   "license": "MIT",
+  "title": "jQuery range with Buttons",
   "name": "jq-button-range-slider",
   "optionalDependencies": {},
   "readmeFilename": "README.md",

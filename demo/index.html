@@ -2,14 +2,14 @@
 <html>
 	<head>
 		<title>jqButtonRangeSlider</title>
-		<link type="text/css" rel="stylesheet" href="../src/css/jq-button-range-slider.css" />
+		<link type="text/css" rel="stylesheet" href="../dist/jq-button-range-slider.css" />
 		<style type="text/css">
 			body{
 				padding: 30px;
 			}
 		</style>
 		<script src="../node_modules/jquery/dist/jquery.js"></script>
-		<script src="../dist/js/jq-button-range-slider.js"></script>
+		<script src="../dist/jq-button-range-slider.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -22,7 +22,7 @@
 				<p>Value at Lower Bound : <span class="lb"></span></p>
 				<p>Value at Upper Bound: <span class="ub"></span></p>
 			</div>
-			
+
 			<h2>Example #2:</h2>
 			<div id="demo-2"></div>
 			<div id="demo-2-result">
@@ -43,7 +43,7 @@
 				<p>Value at Lower Bound : <span class="lb"></span></p>
 				<p>Value at Upper Bound: <span class="ub"></span></p>
 			</div>
-			
+
 		</div>
 
 		<script>
@@ -80,7 +80,7 @@
 					$('#demo-1-result .lb').text(ui.lb.value);
 					$('#demo-1-result .ub').text(ui.ub.value);
 				});
-				
+
 				$( "#demo-2" ).jqButtonRangeSlider({
 					sliderOptions: [{
 							name: "WHITE",
@@ -142,7 +142,7 @@
 				$('#demo-3-set-range').click(function(e){
 					e.preventDefault();
 					console.log('clicked!');
-					
+
 					//Set new range
 					$( "#demo-3" ).jqButtonRangeSlider( "yoSetRange", {
 						lb: 6,

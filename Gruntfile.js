@@ -23,14 +23,14 @@ module.exports = function( grunt ) {
 				banner: "<%= meta.banner %>"
 			},
 			dist: {
-				src: [ "src/js/jq-button-range-slider.js" ],
-				dest: "dist/js/jq-button-range-slider.js"
+				src: [ "src/jq-button-range-slider.js" ],
+				dest: "dist/jq-button-range-slider.js"
 			}
 		},
 
 		// Lint definitions
 		jshint: {
-			files: [ "src/js/jq-button-range-slider.js", "test/**/*" ],
+			files: [ "src/jq-button-range-slider.js", "test/**/*" ],
 			options: {
 				jshintrc: ".jshintrc"
 			}
@@ -46,8 +46,8 @@ module.exports = function( grunt ) {
 		// Minify definitions
 		uglify: {
 			dist: {
-				src: [ "dist/js/jq-button-range-slider.js" ],
-				dest: "dist/js/jq-button-range-slider.min.js"
+				src: [ "dist/jq-button-range-slider.js" ],
+				dest: "dist/jq-button-range-slider.min.js"
 			},
 			options: {
 				banner: "<%= meta.banner %>"

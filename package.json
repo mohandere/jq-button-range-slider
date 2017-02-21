@@ -32,6 +32,7 @@
   "homepage": "https://mohandere.github.io/jq-button-range-slider/",
   "keywords": [
     "jquery",
+    "jquery-plugin",
     "range-slider",
     "button-range-slider",
     "range",

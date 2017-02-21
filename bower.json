@@ -7,11 +7,12 @@
   "description": "jQuery range slider plugin with buttons as a values.",
   "homepage": "https://mohandere.github.io/jq-button-range-slider/",
   "keywords": [
-    "jquery-plugin",
     "jquery",
-    "plugins",
+    "jquery-plugin",
     "range-slider",
-    "button-range-slider"
+    "button-range-slider",
+    "range",
+    "slider"
   ],
   "main": "src/jq-button-range-slider.js",
   "dependencies": {

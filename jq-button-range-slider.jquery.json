@@ -4,6 +4,7 @@
   "description": "jQuery range slider plugin with buttons.",
   "keywords": [
     "jquery",
+    "jquery-plugin",
     "range-slider",
     "button-range-slider",
     "range",

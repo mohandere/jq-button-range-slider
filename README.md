@@ -9,7 +9,7 @@
 
 ![alt text](https://raw.githubusercontent.com/mohandere/jq-button-range-slider/master/demo/Screenshot.png "Slider demo")
 
-##### [JsFiddle Examples](https://jsfiddle.net/mohandere/2qnk0q04/43/)
+##### [JsFiddle Examples](https://jsfiddle.net/mohandere/2qnk0q04/44/)
 
 ## Getting Started
 Set up your HTML markup.

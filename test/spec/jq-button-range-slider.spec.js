@@ -5,6 +5,10 @@
 	var $testCanvas = $( "#testCanvas" );
 	var $fixture = null;
 
+	QUnit.test( "hello test", function( assert ) {
+		assert.ok( 1 == "1", "Passed!" );
+	});
+
 	QUnit.module( "JqButtonRangeSlider", {
 		beforeEach: function() {
 

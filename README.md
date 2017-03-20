@@ -1,9 +1,8 @@
 ## Features
 - Full Responsive.
-- Scales with its container.
 - String and Interger type value support
 - Supports touch-devices (iPhone, iPad, Nexus, etc.).
-- Fully customisable
+- Fully customisable/ style as you want
 
 ## Demo/Examples
 

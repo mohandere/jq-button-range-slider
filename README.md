@@ -1,6 +1,6 @@
 ### @npm
 
-You can also download npm module from [npm.js](https://www.npmjs.com/package/jq-button-range-slider)
+You can also download a plugin from [npm.js](https://www.npmjs.com/package/jq-button-range-slider) site.
 
 ## Features
 - Full Responsive.

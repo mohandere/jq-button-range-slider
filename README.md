@@ -1,3 +1,7 @@
+### @npm
+
+You can also download npm module from [npm.js](https://www.npmjs.com/package/jq-button-range-slider).
+
 ## Features
 - Full Responsive.
 - String and Interger type value support
